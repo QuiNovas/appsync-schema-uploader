@@ -28,6 +28,10 @@ def _parse_command_line_arguments():
         help='The AWS IAM Secret Access Key to use'
     )
     argv_parser.add_argument(
+        '--aws-region',
+        help='The AWS Region of the AppSync API to update'
+    )
+    argv_parser.add_argument(
         '--api-id',
         help='The API Id of the AppSync API to update'
     )
@@ -49,7 +53,8 @@ def main():
         appsync = boto3.client(
             'appsync',
             aws_access_key_id=args.aws_access_key_id,
-            aws_secret_access_key=args.aws_secret_access_key
+            aws_secret_access_key=args.aws_secret_access_key,
+            region_name=args.aws_region
         )
         with open(args.schema) as schema:
             print('Uploading schema', args.schema)
