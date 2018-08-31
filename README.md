@@ -6,7 +6,7 @@ This is intended to be used in a CI/CD process for managing AppSync schemas
 
 ###Usage
 ```
-python -m appsync_schema_uploads --aws-access-key-id accesskey --aws-secret-access-key secret --aws_region region --api-id id --schema schema.graphql
+python -m appsync_schema_uploader --aws-access-key-id accesskey --aws-secret-access-key secret --aws_region region --api-id id --schema schema.graphql
 ```
 
 ###Arguments
