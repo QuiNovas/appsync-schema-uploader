@@ -63,6 +63,8 @@ def main():
                 definition=schema.read()
             )
         while response['status'] not in ('ACTIVE', 'SUCCESS'):
+            if response['status'] == 'FAILED':
+                raise Exception(response["details"])
             print('Waiting for upload completion')
             time.sleep(2)
             response = appsync.get_schema_creation_status(
@@ -79,4 +81,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
